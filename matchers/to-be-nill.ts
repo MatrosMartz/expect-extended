@@ -1,11 +1,11 @@
 import { format } from '@std/internal/format';
-import type { Matcher } from '../_types.ts';
+import type { ExtendMatchResult, MatcherContext } from '../_types.ts';
 
-export const toBeNil: Matcher = ({ value }) => {
+export function toBeNil({ value }: MatcherContext): ExtendMatchResult {
 	const pass = value == null;
 
 	return {
 		pass,
 		message: () => `Expected value ${pass ? 'not ' : ''}to be null or undefined, received:\n${format(value)}`,
 	};
-};
+}

@@ -1,6 +1,6 @@
 import { format } from '@std/internal/format';
 
-import type { Matcher } from '../_types.ts';
+import type { ExtendMatchResult, MatcherContext } from '../_types.ts';
 
 function isIterable(value: object): value is Iterable<unknown> {
 	return Symbol.iterator in value && typeof value[Symbol.iterator] === 'function';
@@ -13,11 +13,11 @@ function isEmptyIterable(value: unknown): boolean {
 	return firstIteration.done ?? false;
 }
 
-export const toBeEmpty: Matcher = ({ equal, value }) => {
+export function toBeEmpty({ equal, value }: MatcherContext): ExtendMatchResult {
 	const pass = '' === value || equal({}, value) || isEmptyIterable(value);
 
-	return ({
+	return {
 		pass,
 		message: () => `Expected value to ${pass ? 'not ' : ''}be empty received:\n${format(value)}`,
-	});
-};
+	};
+}

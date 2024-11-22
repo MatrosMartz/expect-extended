@@ -1,6 +1,8 @@
-import type { Matcher } from '../_types.ts';
+import type { ExtendMatchResult, MatcherContext } from '../_types.ts';
 
-export const fail: Matcher = (_, message = 'fails by .fail() assertion') => ({
-	pass: false,
-	message: () => message,
-});
+export function fail(_: MatcherContext, message = 'fails by .fail() assertion'): ExtendMatchResult {
+	return {
+		pass: false,
+		message: () => message,
+	};
+}
