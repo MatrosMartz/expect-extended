@@ -8,7 +8,7 @@ function isIterable(value: object): value is Iterable<unknown> {
 }
 
 function isEmptyIterable(value: unknown): boolean {
-	if (value == null || !isIterable(value)) return false;
+	if (typeof value !== 'object' || value == null || !isIterable(value)) return false;
 	const firstIteration = value[Symbol.iterator]().next();
 	return firstIteration.done ?? false;
 }

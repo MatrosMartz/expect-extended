@@ -39,7 +39,7 @@ describe('.toBeEmpty', () => {
 	});
 
 	test('fails when given non-empty string', () => {
-		expect(() => expect('string').toBeEmpty()).toThrow('Expected value to be empty received: "string"');
+		expect(() => expect('string').toBeEmpty()).toThrow('Expected value to be empty received:\n"string"');
 	});
 });
 
@@ -77,6 +77,6 @@ describe('.not.toBeEmpty', () => {
 	});
 
 	test('fails when given empty string', () => {
-		expect(() => expect('').not.toBeEmpty()).toThrow('Expected value to not be empty received: ""');
+		expect(() => expect('').not.toBeEmpty()).toThrow('Expected value to not be empty received:\n""');
 	});
 });
