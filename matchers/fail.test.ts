@@ -2,7 +2,7 @@ import { expect as e } from '@std/expect';
 import { describe, test } from '@std/testing/bdd';
 
 import * as matchers from './fail.ts';
-import type { ExpectedExtended } from '../expected-extended.ts';
+import type { ExpectedExtended } from '~/ee';
 
 declare module '@std/expect' {
 	interface Expected<IsAsync = false> {

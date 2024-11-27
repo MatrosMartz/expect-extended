@@ -12,7 +12,8 @@
 		"@std/internal": "jsr:@std/internal@^1.0.5",
 		"@std/testing": "jsr:@std/testing@^1.0.5",
 		"~/types": "./types.ts",
-		"~/utils": "./utils.ts"
+		"~/utils": "./utils.ts",
+		"~/ee": "./expected-extended.ts"
 	},
 	"publish": {
 		"exclude": ["**.test.ts"]

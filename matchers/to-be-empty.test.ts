@@ -1,7 +1,7 @@
 import { describe, test } from '@std/testing/bdd';
 import { expect as e } from '@std/expect';
 
-import type { ExpectedExtended } from '../expected-extended.ts';
+import type { ExpectedExtended } from '~/ee';
 import * as matchers from './to-be-empty.ts';
 
 e.extend(matchers);
