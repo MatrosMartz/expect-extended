@@ -19,36 +19,10 @@ describe('.toBeArray', () => {
 });
 
 describe('.not.toBeArray', () => {
-	test('passes when not given an array: false', () => {
-		expect(false).not.toBeArray();
-	});
-
-	test('passes when not given an array: true', () => {
-		expect(true).not.toBeArray();
-	});
-
-	test('passes when not given an array: 0', () => {
-		expect(0).not.toBeArray();
-	});
-
-	test('passes when not given an array: {}', () => {
-		expect({}).not.toBeArray();
-	});
-
-	test('passes when not given an array: () => {}', () => {
-		expect(() => {}).not.toBeArray();
-	});
-
-	test('passes when not given an array: undefined', () => {
-		expect(undefined).not.toBeArray();
-	});
-
-	test('passes when not given an array: null', () => {
-		expect(null).not.toBeArray();
-	});
-
-	test('passes when not given an array: NaN', () => {
-		expect(NaN).not.toBeArray();
+	[false, true, 0, {}, () => {}, undefined, null, NaN].forEach((given) => {
+		test(`passes when not given an array: ${String(given)}`, () => {
+			expect(given).not.toBeArray();
+		});
 	});
 
 	test('fails when given an array', () => {

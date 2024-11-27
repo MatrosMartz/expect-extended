@@ -26,36 +26,10 @@ describe('.toBeArrayOfSize', () => {
 		expect(() => expect(false).toBeArrayOfSize(1)).toThrow(/^Expected value to be an array of size:\n/);
 	});
 
-	test('fails when given type of false which is not an array', () => {
-		expect(() => expect(false).toBeArrayOfSize(1)).toThrow(/^Expected value to be an array of size:\n/);
-	});
-
-	test('fails when given type of true which is not an array', () => {
-		expect(() => expect(true).toBeArrayOfSize(1)).toThrow(/^Expected value to be an array of size:\n/);
-	});
-
-	test('fails when given type of 0 which is not an array', () => {
-		expect(() => expect(0).toBeArrayOfSize(1)).toThrow(/^Expected value to be an array of size:\n/);
-	});
-
-	test('fails when given type of {} which is not an array', () => {
-		expect(() => expect({}).toBeArrayOfSize(1)).toThrow(/^Expected value to be an array of size:\n/);
-	});
-
-	test('fails when given type of () => {} which is not an array', () => {
-		expect(() => expect(() => {}).toBeArrayOfSize(1)).toThrow(/^Expected value to be an array of size:\n/);
-	});
-
-	test('fails when given type of undefined which is not an array', () => {
-		expect(() => expect(undefined).toBeArrayOfSize(1)).toThrow(/^Expected value to be an array of size:\n/);
-	});
-
-	test('fails when given type of null which is not an array', () => {
-		expect(() => expect(null).toBeArrayOfSize(1)).toThrow(/^Expected value to be an array of size:\n/);
-	});
-
-	test('fails when given type of NaN which is not an array', () => {
-		expect(() => expect(NaN).toBeArrayOfSize(1)).toThrow(/^Expected value to be an array of size:\n/);
+	[false, true, 0, {}, () => {}, undefined, null, NaN].forEach((given) => {
+		test(`fails when given type of ${given} which is not an array`, () => {
+			expect(() => expect(false).toBeArrayOfSize(1)).toThrow(/^Expected value to be an array of size:\n/);
+		});
 	});
 
 	test('fails when not given a parameter', () => {
@@ -70,36 +44,10 @@ describe('.toBeArrayOfSize', () => {
 });
 
 describe('.not.toBeArrayOfSize', () => {
-	test('passes when not given an array: false', () => {
-		expect(false).not.toBeArrayOfSize(2);
-	});
-
-	test('passes when not given an array: true', () => {
-		expect(true).not.toBeArrayOfSize(2);
-	});
-
-	test('passes when not given an array: 0', () => {
-		expect(0).not.toBeArrayOfSize(2);
-	});
-
-	test('passes when not given an array: {}', () => {
-		expect({}).not.toBeArrayOfSize(2);
-	});
-
-	test('passes when not given an array: () => {}', () => {
-		expect(() => {}).not.toBeArrayOfSize(2);
-	});
-
-	test('passes when not given an array: undefined', () => {
-		expect(undefined).not.toBeArrayOfSize(2);
-	});
-
-	test('passes when not given an array: null', () => {
-		expect(null).not.toBeArrayOfSize(2);
-	});
-
-	test('passes when not given an array: NaN', () => {
-		expect(NaN).not.toBeArrayOfSize(2);
+	[false, true, 0, {}, () => {}, undefined, null, NaN].forEach((given) => {
+		test(`passes when not given an array: ${given}`, () => {
+			expect(false).not.toBeArrayOfSize(2);
+		});
 	});
 
 	{
