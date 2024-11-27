@@ -1,0 +1,52 @@
+#!/bin/bash
+
+# Check if params are passed
+if [ "$#" -lt 1 ]; then
+  echo "Use: $0 <filename1> <filename2> ..."
+  exit 1
+fi
+
+# iterate on each filename provided as an param
+for filename in "$@"; do
+  main_file="${filename}.ts"
+  test_file="${filename}.test.ts"
+  echo $main_file $test_file
+
+  if [ -e "$main_file" ] || [ -e "$test_file" ]; then
+    echo "Error: the archive '$main_file' or '$test_file' already exist. Aborted"
+    exit 1
+  fi
+
+  echo "Creating main file: ${main_file}"
+
+  cat <<EOL >"$main_file"
+import { format } from '@std/internal/format';
+
+import type { ExtendMatchResult, MatcherContext } from '~/types';
+import { printNot } from '~/utils';
+
+export function to({ value }: MatcherContext): ExtendMatchResult {
+	const pass = false;
+
+	return {
+		pass,
+		message: () => \`\${printNot(pass)}\`
+	};
+}
+EOL
+
+  echo "Ceating testing file: ${test_file}"
+  cat <<EOL >"$test_file"
+import { describe, test } from '@std/testing/bdd';
+import { expect as e } from '@std/expect';
+
+import type { ExpectedExtended } from '~/ee';
+import * as matchers from './${filename}.ts';
+
+e.extend(matchers);
+const expect = e<ExpectedExtended>;
+EOL
+
+done
+
+echo "Succesfully created files"
