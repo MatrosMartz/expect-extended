@@ -1,12 +1,12 @@
 import { describe, test } from '@std/testing/bdd';
 import { expect as e } from '@std/expect';
 
-import type { ExpectedExtended } from '~/ee';
+import type { ExtendedExpected } from '~/extended-types';
 import * as Matchers from './to-include-all-partial-members.ts';
 
 e.extend(Matchers);
 
-const expect = e<ExpectedExtended>;
+const expect = e<ExtendedExpected>;
 
 describe('.toIncludeAllPartialMembers', () => {
 	test('passes when array values matches the partial members of the set', () => {

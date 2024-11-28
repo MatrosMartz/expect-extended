@@ -40,11 +40,11 @@ EOL
 import { describe, test } from '@std/testing/bdd';
 import { expect as e } from '@std/expect';
 
-import type { ExpectedExtended } from '~/extended-types';
+import type { ExtendedExpected } from '~/extended-types';
 import * as matchers from './${filename}.ts';
 
 e.extend(matchers);
-const expect = e<ExpectedExtended>;
+const expect = e<ExtendedExpected>;
 EOL
 
 done

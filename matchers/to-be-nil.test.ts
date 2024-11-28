@@ -1,11 +1,11 @@
 import { describe, test } from '@std/testing/bdd';
 import { expect as e } from '@std/expect';
 
-import type { ExpectedExtended } from '~/ee';
+import type { ExtendedExpected } from '~/extended-types';
 import * as Matchers from './to-be-nil.ts';
 
 e.extend(Matchers);
-const expect = e<ExpectedExtended>;
+const expect = e<ExtendedExpected>;
 
 describe('.toBeNil', () => {
 	test('passes when null is given', () => {

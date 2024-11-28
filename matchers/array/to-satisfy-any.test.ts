@@ -1,12 +1,12 @@
 import { describe, test } from '@std/testing/bdd';
 import { expect as e } from '@std/expect';
 
-import type { ExpectedExtended } from '~/ee';
+import type { ExtendedExpected } from '~/extended-types';
 import * as Matchers from './to-satisfy-any.ts';
 
 e.extend(Matchers);
 
-const expect = e<ExpectedExtended>;
+const expect = e<ExtendedExpected>;
 
 const isEven = (el: number) => el % 2 === 0;
 const isOdd = (el: number) => el % 2 === 1;

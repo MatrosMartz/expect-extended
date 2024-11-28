@@ -2,16 +2,10 @@ import { expect as e } from '@std/expect';
 import { describe, test } from '@std/testing/bdd';
 
 import * as matchers from './fail.ts';
-import type { ExpectedExtended } from '~/ee';
-
-declare module '@std/expect' {
-	interface Expected<IsAsync = false> {
-		fail(message?: string): void;
-	}
-}
+import type { ExtendedExpected } from '~/extended-types';
 
 e.extend(matchers);
-const expect = e<ExpectedExtended>;
+const expect = e<ExtendedExpected>;
 
 describe('.fail', () => {
 	test('fails without message', () => {

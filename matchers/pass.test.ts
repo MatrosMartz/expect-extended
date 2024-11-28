@@ -1,12 +1,12 @@
 import { expect as e } from '@std/expect';
 import { describe, test } from '@std/testing/bdd';
 
-import type { ExpectedExtended } from '~/ee';
+import type { ExtendedExpected } from '~/extended-types';
 import * as matchers from './pass.ts';
 
 e.extend(matchers);
 
-const expect = e<ExpectedExtended>;
+const expect = e<ExtendedExpected>;
 
 describe('.pass', () => {
 	test('passes without message', () => {
