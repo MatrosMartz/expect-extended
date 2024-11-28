@@ -40,7 +40,7 @@ EOL
 import { describe, test } from '@std/testing/bdd';
 import { expect as e } from '@std/expect';
 
-import type { ExpectedExtended } from '~/ee';
+import type { ExpectedExtended } from '~/extended-types';
 import * as matchers from './${filename}.ts';
 
 e.extend(matchers);
