@@ -1,7 +1,22 @@
 {
 	"name": "@martz/expect-extended",
 	"version": "0.1.0",
-	"exports": { ".": "./mod.ts" },
+	"exports": {
+		".": "./mod.ts",
+		"./expected-extended": "./expected-extended.ts",
+		"./matchers": "./matchers/mod.ts",
+		"./matchers/array": "./matchers/array/mod.ts",
+		"./matchers/boolean": "./matchers/boolean/mod.ts",
+		"./matchers/date": "./matchers/date/mod.ts",
+		"./matchers/function": "./matchers/function/mod.ts",
+		"./matchers/mock": "./matchers/mock/mod.ts",
+		"./matchers/number": "./matchers/number/mod.ts",
+		"./matchers/promise": "./matchers/promise/mod.ts",
+		"./matchers/object": "./matchers/object/mod.ts",
+		"./matchers/string": "./matchers/string/mod.ts",
+		"./matchers/symbol": "./matchers/symbol/mod.ts",
+		"./types": "./types.ts"
+	},
 	"tasks": {
 		"ok": "deno "
 	},
@@ -11,9 +26,9 @@
 		"@std/expect": "jsr:@std/expect@^1.0.8",
 		"@std/internal": "jsr:@std/internal@^1.0.5",
 		"@std/testing": "jsr:@std/testing@^1.0.5",
-		"~/types": "./types.ts",
+		"~/types": "./internal-types.ts",
 		"~/utils": "./utils.ts",
-		"~/ee": "./expected-extended.ts"
+		"~/extended-types": "./types.ts"
 	},
 	"publish": {
 		"exclude": ["**.test.ts"]

@@ -14,3 +14,4 @@ export * from './promise/mod.ts';
 export * from './object/mod.ts';
 export * from './string/mod.ts';
 export * from './symbol/mod.ts';
+export * from './types.ts';

@@ -7,3 +7,4 @@ export * from './to-partially-contain.ts';
 export * from './to-satisfy-all.ts';
 export * from './to-satisfy-any.ts';
 export * from './to-be-in-range.ts';
+export * from './types.ts';
